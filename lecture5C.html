@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div>BOX</div>
+    <button id="btn1">Add Styling</button>
+    <button id="btn2">Remove Styling</button>
+    <script>
+        let box = document.querySelector('div')
+        let btn1 = document.querySelector('#btn1')
+        let btn2 = document.querySelector('#btn2')
+
+
+        function addStyles(){
+            box.classList.add('container')
+
+        }
+
+        function removeStyles(){
+            box.classList.remove('container')
+
+        }
+
+        btn1.addEventListener('click',addStyles)
+        btn2.addEventListener('click',removeStyles)
+
+
+    </script>
+</body>
+</html>

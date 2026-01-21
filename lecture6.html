@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- <div>Hello</div>
+
+    <input type="text" name="" id=""> -->
+
+    <form action="">
+        <input type="text" name="" id="">
+        <button type="submit">Send</button>
+    </form>
+
+    <script>
+        // let box = document.querySelector('div')
+        // let inp = document.querySelector('input')
+
+        // box.addEventListener('mouseover',function(){
+        //     console.log("Hello Box")
+        // })
+
+
+        // inp.addEventListener('keydown',function(){
+        //     console.log('Key Presses')
+        // })
+
+        let form = document.querySelector('form')
+
+        form.addEventListener('submit',function(event){
+            event.preventDefault()
+            console.log('Form Submitted')
+        })
+
+    </script>
+</body>
+</html>

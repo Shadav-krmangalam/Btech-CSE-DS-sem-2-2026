@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Propagation</title>
+    <style>
+        #outer{
+            background-color: aquamarine;
+            width: 500px;
+            height: 400px;
+        }
+        #middle{
+            background-color: bisque;
+            width: 250px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="outer">
+        <div id="middle">
+            <button id="inner">Click</button>
+        </div>
+    </div>
+
+    <script>
+     let outer = document.querySelector('#outer')
+     let middle = document.querySelector('#middle')
+     let inner = document.querySelector('#inner')
+
+     outer.addEventListener('click',function(event){
+        event.stopPropagation()
+        alert('Outer Div')
+     },true)
+    middle.addEventListener('click',function(){
+        alert('Middle Div')
+     },true)
+
+    inner.addEventListener('click',function(){
+        alert('Inner Div')
+     },true)
+
+    </script>
+
+
+    
+</body>
+</html>

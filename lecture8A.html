@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        function a(){
+            b()
+        }
+
+        function b(){
+            c()
+        }
+
+        function c(){
+            let a=20;
+            const b=10;
+            var result = a-b;
+            console.log(result)
+        }
+
+        a();
+
+
+    </script>
+    
+</body>
+</html>

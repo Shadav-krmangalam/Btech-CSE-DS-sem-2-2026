@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        console.log('Start Cooking...')
+
+        function boilWater(callback){
+            console.log('Boiling Water...')
+            setTimeout(()=>{
+                console.log('Water Boiled')
+                callback()
+            },5000)
+
+        }
+
+        function addMaggie(callback){
+            console.log('Adding Maggie...')
+            setTimeout(()=>{
+                console.log('Maggie Added')
+                callback();
+            },3000)
+        }
+
+        function addMasala(callback){
+            console.log('Adding Masala....')
+            setTimeout(()=>{
+                console.log('Masala Added')
+                callback()
+
+            },2000)
+        }
+        function serve(){
+            console.log('Serve and eat..')
+        }
+
+        boilWater(()=>{
+            addMaggie(()=>{
+                addMasala(()=>{
+                    serve();
+                })
+            })
+        })
+
+
+    </script>
+</body>
+</html>

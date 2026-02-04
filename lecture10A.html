@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>0:0</h1>
+    <button id="startBtn">Start</button>
+    <button id="pauseBtn">Pause</button>
+    <button id="resetBtn">Reset</button>
+
+    <script>
+        let h1 = document.querySelector('h1');
+        let startBtn = document.querySelector('#startBtn')
+        let pauseBtn = document.querySelector('#pauseBtn')
+        let resetBtn = document.querySelector('#resetBtn')
+        let seconds = 0;
+        let minutes = 0;
+        let removeInterval;
+
+        function startWatch(){
+            removeInterval = setInterval(()=>{
+                seconds++;
+                minutes = Math.floor(seconds/60);
+                h1.innerText = `${minutes}:${seconds%60}`
+            },1000)
+
+        }
+
+        function pauseWatch(){
+            clearInterval(clr)
+
+        }
+
+
+        startBtn.addEventListener('click',startWatch)
+        pauseBtn.addEventListener('click',pauseWatch)
+
+      
+
+
+    </script>
+    
+</body>
+</html>

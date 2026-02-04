@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Smart Event Dashboard</h1>
+
+    <div id="container-A">
+        <h3>Add New Event</h3>
+        <form action="">
+            <label for="eventTitle">Event Title :</label>
+            <input type="text" name="" id="eventTitle">
+
+            <label for="eventDate">Event Date :</label>
+            <input type="date" name="" id="eventDate">
+
+            <label for="eventCategory">Category :</label>
+            <select name="" id="eventCategory">
+                <option value="Conference">Conference</option>
+                <option value="Webinar">Webinar</option>
+                <option value="Meetup">Meetup</option>
+                <option value="Workshop">Workshop</option>
+                <option value="Social">Social</option>
+            </select>
+
+            <label for="eventDescription">Description :</label>
+            <textarea name="" id="eventDescription"></textarea>
+
+            <button type="submit">Add Event</button>
+
+        </form>
+
+
+    </div>
+
+
+    <div id="container-B">
+
+        <h3>My Events</h3>
+
+       <div>
+         <button id="clear-btn">Clear All events</button>
+          <button id="add-sample-btn">Add Sample Events</button>
+       </div>
+       <div id="event-container">
+        <h4>No Events Yet</h4>
+       </div>
+
+
+    </div>
+    <script>
+        let form = document.querySelector('form')
+        let eventTitle = document.querySelector('#eventTitle')
+        let eventDate = document.querySelector('#eventDate');
+        let eventCategory = document.querySelector('#eventCategory')
+        let eventDescription = document.querySelector('#eventDescription')
+        let eventContainer = document.querySelector('#event-container')
+        let isEmpty = true;
+
+        function addEventFunction(event){
+            event.preventDefault();
+            
+            let card = document.createElement('div')
+
+            card.innerHTML = `<button>X</button>
+                               <h4>${eventTitle.value}</h4>
+                               <span>${eventDate.value}</span><br>
+                                <span>${eventCategory.value}</span>
+                                <p>${eventDescription.value}</p>`
+
+            if(isEmpty){
+                eventContainer.innerHTML = ""
+            }
+            eventContainer.append(card)
+            isEmpty = false;
+        }
+
+
+        form.addEventListener('submit',addEventFunction)
+
+
+    </script>
+    
+</body>
+</html>

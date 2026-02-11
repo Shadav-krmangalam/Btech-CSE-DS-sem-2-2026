@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises</title>
+</head>
+<body>
+    <script>
+
+        let flag = true;
+
+        let wada = new Promise((resolve,reject)=>{
+
+            if(flag===true){
+                resolve("Pura Hua Wada")
+
+            }else{
+                reject("Kya hua tera wada")
+            }
+
+        })
+
+        // console.log(wada);
+
+        wada.then(result=>console.log(result)).catch(err=>console.log(err))
+
+
+
+    </script>
+    
+</body>
+</html>

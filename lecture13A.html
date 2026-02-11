@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let cart = ["Laptop","Mobile","Earphone"];
+
+        function createOrder(cart){
+            console.log("Creating Order...")
+            return new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    if(cart.length>0){
+                        resolve({
+                            orderID:1234,
+                            amount:2500
+                        })
+                    }else{
+                        reject("Cart is Empty")
+                    }
+
+                },5000)
+            })
+
+        }
+
+        function makePayment(order){
+            console.log("Initializing Payment....")
+            return new Promise((resolve,reject)=>{
+                let network = true
+                setTimeout(()=>{
+                    if(network){
+                        resolve({
+                            ...order,
+                            paymentID:"pay123"
+                        })
+                    }else{
+                        reject("Payment Failed Network Error")
+                    }
+
+                },5000)
+            })
+
+        }
+
+        function updateInventory(order){
+            console.log("Updating Inventory...")
+            return new Promise((resolve,reject)=>{
+                let inventoryAvailable = true
+             setTimeout(()=>{
+                   if(inventoryAvailable){
+                    resolve({
+                        ...order,
+                        updatedInventory:true
+                    })
+                }else{
+                    reject("Inventory Unavailable")
+                }
+
+             },5000)
+            })
+        }
+
+        function orderStatus(order){
+            console.log("Confirming Order....")
+            return new Promise((resolve,reject)=>{
+                let message = true;
+                setTimeout(()=>{
+                    if(message){
+                        resolve({
+                            ...order,
+                            orderStatus:"confirm"
+                        })
+                    }else{
+                        reject("Order Status Failed")
+                    }
+
+                },5000)
+            })
+        }
+
+
+
+    </script>
+    
+</body>
+</html>

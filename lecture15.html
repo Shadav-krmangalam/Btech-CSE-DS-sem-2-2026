@@ -31,7 +31,7 @@
         function makePayment(order){
             console.log("Initializing Payment....")
             return new Promise((resolve,reject)=>{
-                let network = false
+                let network = true
                 setTimeout(()=>{
                     if(network){
                         resolve({

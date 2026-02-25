@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .container{
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            border: 1px solid grey;
+            width: 200px;
+            height: 300px;
+        }
+
+        img{
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+
+        async function getProducts(){
+            let response = await fetch ('https://dummyjson.com/products')
+            let data = await response.json()
+            let elements = data.products
+            console.log(elements);
+            let body = document.querySelector('body')
+
+            elements.forEach((item,index)=>{
+
+                let card = document.createElement('div')
+                card.innerHTML = `<img src=${item.images[0]} alt=${item.title}/>
+                                  <h3>${item.title}</h3>
+                                  <span>${item.price}</span>`
+            card.classList.add('container')
+            body.append(card)
+            })
+        }
+
+        getProducts()
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+
+async function sendProducts(){
+   let response = await fetch('https://dummyjson.com/products/add', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    title: 'Laptop',
+    brand:"ASUS",
+    description:"This is Asus Laptop"
+    /* other product data */
+  })
+})
+
+  let data = await response.json()
+  console.log(data)
+
+}
+
+sendProducts()
+    </script>
+    
+</body>
+</html>

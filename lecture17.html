@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API</title>
+</head>
+<body>
+
+    <script>
+
+        
+
+        async function getProducts(){
+          let response = await fetch('https://dummyjson.com/products')
+         let data = await response.json()
+         let elements = data.products
+
+         elements.forEach((item,index)=>{
+            console.log(item.dimensions.width,index)
+         })
+         
+        
+
+        }
+
+        getProducts()
+
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currying</title>
+</head>
+<body>
+    <script>
+
+    //     function add(a,b,c){
+
+    //         return a+b+c
+
+    //     }
+
+
+    //    let result = add(5,10)
+
+    //    console.log(result)
+
+
+
+    function add(a){
+        return function(b){
+            return function(c){
+                return a+b+c
+            }
+        }
+    }
+
+    let a = add(5)
+    console.log(a)
+
+    </script>
+    
+</body>
+</html>

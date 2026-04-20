@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Weather App</title>
+</head>
+<body>
+
+    <h1>Async Weather Tracker</h1>
+
+    <div class="left-container">
+
+        <div id="search-main-conntainer">
+            <form action="">
+                <label for="city">Search City : </label>
+                <input type="text" name="" id="city">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+
+        <div id="history-main-container">
+            <h4>Search History :</h4>
+            <div id="searched-history">
+                <button>Delhi</button>
+                <button>Mumbai</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="right-container">
+        <h4>Weather Info</h4>
+        <div id="weather-data"></div>
+    </div>
+
+
+    <script>
+   
+    
+      const API_KEY = "1a761d3bb408836cd1af3641ce1604c9"
+
+      let form = document.querySelector("form")
+      let city = document.querySelector("#city")
+      let weatherContainer = document.querySelector("#weather-data")
+
+     async function fetchWeather(city){
+         
+       let result = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)
+
+      let data = await result.json()
+
+      let card = document.createElement('div')
+      card.innerHTML = `<h4>City : ${data.name}</h4>
+                        <h4>Temp : ${data.main.temp}</h4>
+                        <h4>Humidity : ${data.main.humidity} </h4>
+                        <h4>Wind : ${data.wind.speed}</h4>`
+
+      weatherContainer.innerHTML = ""
+
+        weatherContainer.append(card)
+
+       
+      }
+
+
+      
+
+
+      form.addEventListener("submit",(event)=>{
+        event.preventDefault()
+        fetchWeather(city.value)
+      })
+
+
+    </script>
+    
+</body>
+</html>
